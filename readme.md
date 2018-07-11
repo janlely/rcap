@@ -2,7 +2,7 @@
 
 剪切板共享工具，http实现主机之间的剪切板共享
 
-### src/main.js
+### src/rcap-server.js
 用express写的简单http服务
 两个接口/paste和/copy
 
@@ -15,7 +15,7 @@
 把剪切板中的内容写到response.body中
 
 
-### rcap
+### rcap-cli.sh
 
 -h 运程主机ip
 

@@ -13,10 +13,10 @@ receive() {
 send() {
     if [ 'darwin' = `uname | tr 'A-Z' 'a-z'` ]; then
         TEXT=`pbpaste`
-        curl -d $TEXT http://$HOST:$PORT/paste
+        curl -d "$TEXT" http://$HOST:$PORT/paste
     elif [ 'linux' = `uname | tr 'A-Z' 'a-z'` ]; then
         TEXT=`xclip -o -sel clipboard`
-        curl -d $TEXT http://$HOST:$PORT/paste
+        curl -d "$TEXT" http://$HOST:$PORT/paste
     fi
 }
 
