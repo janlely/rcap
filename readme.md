@@ -1,26 +1,52 @@
 ### remote copy and paste
 
-剪切板共享工具，http实现主机之间的剪切板共享
+tool to share clipboard remotly, by http
 
 ### src/rcap-server.js
-用express写的简单http服务
-两个接口/paste和/copy
+
+written by express
+
+to interfaces /paste and /copy
 
 * /paste
 
-把request.body中的内容，放到剪切板中
+set clipboard with request.body
 
 * /copy
 
-把剪切板中的内容写到response.body中
-
+send clipboard to response
 
 ### rcap-cli.sh
 
--h 运程主机ip
+-h remote ip
 
--p 远程主机port
+-p remot port
 
--r receive, 把远程主机的剪切板的内容复制到本机剪切板
+-r receive, get clipboard content from remote host 
 
--s send, 把本机剪切板的内容发送到远程主机的剪切板中
+-s send, send clipboard content to remote host 
+
+
+### working with systemctl
+
+need to add Environment=DISPLAY=:0
+
+```
+[Unit]
+Description=rcap-server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=jay
+WorkingDirectory=/home/jay/git/rcap
+ExecStart=/home/jay/.nvm/versions/node/v8.11.3/bin/node dist/rcap-server.js
+Environment=DISPLAY=:0
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+Alias=rcap-server.service
+```

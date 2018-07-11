@@ -7,10 +7,11 @@ let app = express();
 app.use(bodyParser.text())
 
 app.post("/paste", (req, res) => {
+    console.log(req.body)
     if(process.platform == 'darwin'){
         sh.echo(req.body).exec('pbcopy', {silent: true});
     }else if(process.platform == 'linux'){
-        sh.echo(req.body).exec('xsel -i -b', {silent: true})
+        sh.echo(req.body).exec('xsel -i -b', {silent: true});
     }
     res.send()
 })
