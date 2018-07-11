@@ -2,7 +2,7 @@
   "main": "src/main.js",
   "scripts": {
     "build": "babel src/ --out-dir dist/ --copy-files",
-    "start": "node dist/main.js"
+    "start": "node dist/rcap-server.js"
   },
   "dependencies": {
     "express": "^4.16.3",
