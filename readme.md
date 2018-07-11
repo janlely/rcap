@@ -1,12 +1,12 @@
 ### remote copy and paste
 
-tool to share clipboard remotly, by http
+tool to share clipboard remotely by http
 
 ### src/rcap-server.js
 
 written by express
 
-to interfaces /paste and /copy
+two interfaces /paste and /copy
 
 * /paste
 
@@ -29,7 +29,6 @@ send clipboard to response
 
 ### working with systemctl
 
-need to add Environment=DISPLAY=:0
 
 ```
 [Unit]
@@ -42,7 +41,7 @@ Type=simple
 User=jay
 WorkingDirectory=/home/jay/git/rcap
 ExecStart=/home/jay/.nvm/versions/node/v8.11.3/bin/node dist/rcap-server.js
-Environment=DISPLAY=:0
+Environment=DISPLAY=:0  #important
 StandardOutput=journal
 StandardError=journal
 
