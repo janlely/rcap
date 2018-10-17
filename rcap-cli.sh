@@ -1,5 +1,4 @@
 #!/bin/bash
-
 HOST=
 PORT=
 receive() {
